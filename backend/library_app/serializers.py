@@ -27,6 +27,7 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         fields = ['id', 'title', 'author', 'isbn', 'owner', 'owner_name', 'category', 'status']
+        read_only_fields = ['owner']  # Make owner read-only to fix validation issues
 
 class RentalSerializer(serializers.ModelSerializer):
     """Serializer for the Rental model"""
@@ -36,6 +37,7 @@ class RentalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rental
         fields = ['id', 'renter', 'renter_name', 'book', 'book_title', 'start_date', 'end_date', 'status']
+        read_only_fields = ['renter']  # Make renter read-only as well
 
 class ReviewSerializer(serializers.ModelSerializer):
     """Serializer for the Review model"""
@@ -45,6 +47,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = ['id', 'book', 'book_title', 'user', 'user_name', 'rating', 'comment']
+        read_only_fields = ['user']  # Make user read-only
         
     def validate(self, data):
         """

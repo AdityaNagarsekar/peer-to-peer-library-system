@@ -96,10 +96,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Custom user model
+# Custom user model - FIXED: removed duplicate line
 AUTH_USER_MODEL = 'library_app.User'
-# Add or modify this line
-AUTH_USER_MODEL = 'library_app.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
